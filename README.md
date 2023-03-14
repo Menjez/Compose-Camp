@@ -2,9 +2,9 @@
 The major major group's submission for the final Compose Camp challenge
 
 ## Libraries
-Compose 
-Compose Navigation
-ktor with github API
+- Compose 
+- Compose Navigation
+- ktor with github API
 
 ## Screenshots
 | Compose | Compose Details | Kotlin Sessions | Kotlin Session Details | Speakers | Speaker Details |
