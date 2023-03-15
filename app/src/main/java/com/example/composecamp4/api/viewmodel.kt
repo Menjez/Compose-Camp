@@ -13,7 +13,7 @@ class SpeakerViewModel(savedStateHandle: SavedStateHandle): ViewModel(){
     private val name = savedStateHandle.get<String>("name")
 
     private val mSpeaker = MutableStateFlow<SpeakerDetails?>(null)
-    val _speaker get() = mSpeaker
+    val speaker get() = mSpeaker
 
     init {
         getSpeakerDetails()
@@ -25,7 +25,7 @@ class SpeakerViewModel(savedStateHandle: SavedStateHandle): ViewModel(){
             try {
                 val speaker = repository.getSpeakerDetails(name = name?:"")
                 mSpeaker.value = speaker
-                Log.i("Details", "DETAILS : ${speaker} ")
+                Log.i("Details", "DETAILS : $speaker ")
             }
             catch (e: Exception){
                 error.value = e.message.toString()

@@ -180,7 +180,7 @@ fun Navigation() {
                     })
             }
         }
-    }) {
+    }) { it ->
         NavHost(
             modifier = Modifier.padding(it),
             navController = navController,
@@ -229,7 +229,6 @@ fun Navigation() {
             ) {
                 SpeakersScreen(navController = navController)
             }
-//
         }
     }
 
@@ -266,7 +265,7 @@ fun SpeakersScreen(
         FloatingActionButton(onClick = { selected = generateRandomList() }) {
             Icon(imageVector = Icons.Rounded.Refresh, contentDescription = "randomize button")
         }
-    }) {
+    }) { it ->
         LazyVerticalGrid(
             modifier = Modifier
                 .padding(it)
@@ -319,7 +318,7 @@ fun SpeakScreen(
     viewModel: SpeakerViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
 
-    val details by viewModel._speaker.collectAsState()
+    val details by viewModel.speaker.collectAsState()
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "") }, navigationIcon = {
             IconButton(onClick = { navController.popBackStack() }) {
@@ -607,7 +606,6 @@ fun KotlinScreen(navController: NavController) {
     }
 }
 
-@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun KotlinDetailsScreen(id: Int, navController: NavController) {
     val kotItem = kotlinDetails[id]
